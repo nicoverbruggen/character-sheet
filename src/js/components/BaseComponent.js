@@ -5,6 +5,7 @@ import { $$ } from "../utils/helpers.js";
 export class BaseComponent {
 
     constructor(element) {
+        /** @type {Node} */
         this.element = element;
         this.render();
     }
@@ -22,7 +23,7 @@ export class BaseComponent {
             // create a new component instance
             let component = new this(element);
             // 2. push the newly created component to a master list of components
-            window.components.push(component);
+            window.app.components.push(component);
         }
     }
 

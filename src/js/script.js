@@ -1,8 +1,4 @@
 "use strict";
 
-import { $$ } from "./utils/Helpers.js";
-import { CharacterSelect } from "./components/CharacterSelect.js";
-
-window.components = [];
-CharacterSelect.register("character-select");
-console.log(window.components);
+import { App } from "./utils/App.js";
+let app = new App();
