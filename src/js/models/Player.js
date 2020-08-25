@@ -23,7 +23,7 @@ export class Player {
      * @param {Object} object 
      */
     static loadFromObject(object) {
-        let player = new Player();
+        let player = new Player(object.name);
 
         let roster = [];
         for (let character in object.characters.roster) {
@@ -31,7 +31,6 @@ export class Player {
             roster.push(characterObject);
         }
 
-        player.name = object.name;
         player.characters = {
             active: object.characters.active,
             roster: roster
