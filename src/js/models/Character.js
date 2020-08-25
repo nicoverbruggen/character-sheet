@@ -17,6 +17,25 @@ export class Character {
     }
 
     /**
+     * Convert JSON to the player's character object 
+     * (containing the active player plus roster).
+     * @param {object} object 
+     */
+    static loadRoster(object) {
+        let roster = [];
+        
+        for (let character of object.characters.roster) {
+            let characterObject = this.loadFromObject(character);
+            roster.push(characterObject);
+        }
+
+        return {
+            active: object.characters.active,
+            roster: roster
+        }
+    }
+
+    /**
     * Convert JSON to actual instance of Character.
     * @param {Object} object
     */

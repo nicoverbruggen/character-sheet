@@ -39,17 +39,7 @@ export class Player {
      */
     static loadFromObject(object) {
         let player = new Player(object.name);
-
-        let roster = [];
-        for (let character of object.characters.roster) {
-            let characterObject = Character.loadFromObject(character);
-            roster.push(characterObject);
-        }
-
-        player.characters = {
-            active: object.characters.active,
-            roster: roster
-        }
+        player.characters = Character.loadRoster(object);
         return player;
     }
 
