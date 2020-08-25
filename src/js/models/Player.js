@@ -14,7 +14,10 @@ export class Player {
             /** @type {Number} */
             active: null,
             /** @type {Character[]} */
-            roster: []
+            roster: [
+                new Character("Anthony Stark"),
+                new Character("Steve Rogers")
+            ]
         };
     }
 
@@ -38,7 +41,7 @@ export class Player {
         let player = new Player(object.name);
 
         let roster = [];
-        for (let character in object.characters.roster) {
+        for (let character of object.characters.roster) {
             let characterObject = Character.loadFromObject(character);
             roster.push(characterObject);
         }
