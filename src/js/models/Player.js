@@ -19,14 +19,22 @@ export class Player {
     }
 
     /**
+     * Loads the player from storage and converts the saved object into a valid Player instance.
+     * @returns {Player}
+     */
+    static load() {
+        let data = JSON.parse(localStorage.getItem("player"));
+        if (data == null) {
+            return null; 
+        }
+        return this.loadFromObject(data);
+    }
+
+    /**
      * Convert JSON to actual instance of Player.
      * @param {Object} object 
      */
     static loadFromObject(object) {
-        if (object == null) {
-            return null;
-        }
-        
         let player = new Player(object.name);
 
         let roster = [];
@@ -40,15 +48,6 @@ export class Player {
             roster: roster
         }
         return player;
-    }
-
-    /**
-     * Loads the player from storage and converts the saved object into a valid Player instance.
-     * @returns {Player}
-     */
-    static load() {
-        let data = JSON.parse(localStorage.getItem("player"));
-        return this.loadFromObject(data);
     }
 
     /**
