@@ -23,6 +23,10 @@ export class Player {
      * @param {Object} object 
      */
     static loadFromObject(object) {
+        if (object == null) {
+            return null;
+        }
+        
         let player = new Player(object.name);
 
         let roster = [];
