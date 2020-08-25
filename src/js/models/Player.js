@@ -38,11 +38,18 @@ export class Player {
         return player;
     }
 
+    /**
+     * Loads the player from storage and converts the saved object into a valid Player instance.
+     * @returns {Player}
+     */
     static load() {
         let data = JSON.parse(localStorage.getItem("player"));
         return this.loadFromObject(data);
     }
 
+    /**
+     * Persists the current player to local storage (uses JSON.stringify).
+     */
     save() {
         localStorage.setItem("player", JSON.stringify(this));
     }
