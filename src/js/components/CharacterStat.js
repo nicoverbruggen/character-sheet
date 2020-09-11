@@ -8,6 +8,8 @@ export class CharacterStat extends BaseComponent {
         let statName = this.attributes.getNamedItem("data-bind").value;
         let character = Character.active();
         let statValue = character.attributes[statName];
+
         this.element.innerHTML = `<input type="number" value=${statValue}>`;
+        // this.element.firstChild
     }
 }

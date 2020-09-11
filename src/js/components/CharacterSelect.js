@@ -14,7 +14,7 @@ export class CharacterSelect extends BaseComponent {
         let characterOptions = ""
         for (let index = 0; index < characters.length; index++) {
             const character = characters[index];
-            let active = (index == player.characters.active) ? " selected" : "";
+            let active = (index == player.characters.activeId) ? " selected" : "";
             characterOptions += `<option value=${index}${active}>${character.name}</option>`
         }
 
@@ -28,7 +28,7 @@ export class CharacterSelect extends BaseComponent {
         let dropDown = $("select", this.element);
         dropDown.onchange = function (selection) {
             let player = Player.active();
-            player.characters.active = Number(selection.target.value);
+            player.characters.activeId = Number(selection.target.value);
             player.save();
             
             for (const component of window.app.components) {

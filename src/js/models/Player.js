@@ -12,7 +12,7 @@ export class Player {
         this.name = name;
         this.characters = {
             /** @type {Number} */
-            active: null,
+            activeId: null,
             /** @type {Character[]} */
             roster: [
                 new Character("Anthony Stark"),

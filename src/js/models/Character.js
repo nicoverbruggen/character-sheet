@@ -20,7 +20,7 @@ export class Character {
 
     static active() {
         const player = Player.active();
-        let index = player.characters.active;
+        let index = player.characters.activeId;
         return player.characters.roster[index];
     }
 
@@ -38,7 +38,7 @@ export class Character {
         }
 
         return {
-            active: object.characters.active,
+            activeId: object.characters.active,
             roster: roster
         }
     }
