@@ -3,6 +3,7 @@
 import { BaseComponent } from "./BaseComponent.js";
 import { Player } from "../models/Player.js";
 import { $ } from "../utils/helpers.js";
+import { CharacterStat } from "./CharacterStat.js";
 
 export class CharacterSelect extends BaseComponent {
     
@@ -29,8 +30,14 @@ export class CharacterSelect extends BaseComponent {
             let player = Player.active();
             player.characters.active = Number(selection.target.value);
             player.save();
+            
             for (const component of window.app.components) {
-                component.render();
+                // only re-render stat components
+                if (component instanceof CharacterStat) {
+                    component.render();
+                } else {
+                    console.log(`Component is instance of ${component.constructor.name}, not a stat`)
+                }
             }
         };
     }

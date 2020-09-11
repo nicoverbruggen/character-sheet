@@ -1,8 +1,8 @@
 "use strict";
 
 import { BaseComponent } from "../components/BaseComponent.js";
-import { CharacterSelect } from "../components/CharacterSelect.js";
 import { Player } from "../models/Player.js";
+import { CharacterSelect } from "../components/CharacterSelect.js";
 import { CharacterStat } from "../components/CharacterStat.js";
 
 export class App {
