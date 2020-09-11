@@ -4,9 +4,17 @@ import { $$ } from "../utils/helpers.js";
 
 export class BaseComponent {
 
-    constructor(element) {
+    /**
+     * 
+     * @param {HTMLElement} newElement 
+     * @param {HTMLElement} originalElement
+     */
+    constructor(newElement, originalElement) {
         /** @type {Node} */
-        this.element = element;
+        this.element = newElement;
+        /** @type {NamedNodeMap} */
+        this.attributes = originalElement.attributes
+
         this.render();
     }
 
@@ -21,7 +29,7 @@ export class BaseComponent {
             let element = document.createElement("div");
             foundElement.replaceWith(element);
             // create a new component instance
-            let component = new this(element);
+            let component = new this(element, foundElement);
             // 2. push the newly created component to a master list of components
             window.app.components.push(component);
         }

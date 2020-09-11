@@ -22,6 +22,17 @@ export class Player {
     }
 
     /**
+     * Returns the currently active player, if one exists in the window.app.player property.
+     * @returns {Player|null}
+     */
+    static active() {
+        if (typeof window.app.player === 'undefined') {
+            return null;
+        }
+        return window.app.player;
+    }
+
+    /**
      * Loads the player from storage and converts the saved object into a valid Player instance.
      * @returns {Player}
      */

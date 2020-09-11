@@ -1,5 +1,7 @@
 "use strict";
 
+import { Player } from "./Player.js";
+
 export class Character {
 
     constructor(name) {
@@ -14,6 +16,12 @@ export class Character {
             instinct    : 1,
             wits        : 1
         };
+    }
+
+    static active() {
+        const player = Player.active();
+        let index = player.characters.active;
+        return player.characters.roster[index];
     }
 
     /**

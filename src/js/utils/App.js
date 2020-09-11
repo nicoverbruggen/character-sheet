@@ -3,6 +3,7 @@
 import { BaseComponent } from "../components/BaseComponent.js";
 import { CharacterSelect } from "../components/CharacterSelect.js";
 import { Player } from "../models/Player.js";
+import { CharacterStat } from "../components/CharacterStat.js";
 
 export class App {
 
@@ -31,5 +32,6 @@ export class App {
 
     registerComponents() {
         CharacterSelect.register("character-select");
+        CharacterStat.register("character-stat");
     }
 }
