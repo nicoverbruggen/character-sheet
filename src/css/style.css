@@ -1,3 +1,39 @@
 body {
     background-color: #EEE;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.character-select input {
+    margin: auto;
+}
+
+.attributes > div {
+    display: flex;
+    max-width: 50%;
+    margin: auto;
+}
+
+.attributes > div:nth-child(1) {
+    justify-content: center;
+}
+
+.attributes > div:nth-child(2) {
+    margin-top: 25px;
+    justify-content: space-between;
+}
+
+.character-stat {
+    display: flex;
+    flex-direction: column;
+}
+
+.character-stat label {
+    color: #333;
+    text-transform: uppercase;
+}
+
+.character-stat input {
+    font-size: 18px;
+    width: 50px;
+    padding: 5px;
 }

@@ -3,14 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Character Sheet</title>
     <link rel="stylesheet" href="src/css/style.css">
 </head>
 <body>
-    <character-select></character-select>
-    <character-stat data-bind="mind"></character-stat>
-    <character-stat data-bind="body"></character-stat>
-    <character-stat data-bind="will"></character-stat>
+    <section class="character-select">
+        <character-select></character-select>
+    </section>
+    <section class="attributes">
+        <div>
+            <character-stat data-bind="mind"></character-stat>
+        </div>
+        <div>
+            <character-stat data-bind="body"></character-stat>
+            <character-stat data-bind="will"></character-stat>
+        </div>
+    </section>
     <script src="src/js/script.js" type="module"></script>
 </body>
 </html>
