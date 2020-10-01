@@ -5,7 +5,6 @@ import { $$ } from "../utils/helpers.js";
 export class BaseComponent {
 
     /**
-     * 
      * @param {HTMLElement} newElement 
      * @param {HTMLElement} originalElement
      */
