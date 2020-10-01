@@ -17,9 +17,8 @@ export class App {
         // Save the app to the window
         window.app = this;   
 
-        // Register all components
-        this.registerComponents();
         this.loadPlayer();
+        this.registerComponents();
     }
 
     loadPlayer() {
