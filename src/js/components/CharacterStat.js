@@ -28,15 +28,14 @@ export class CharacterStat extends BaseComponent {
 
         $('button.top', this.element).onclick = function(ev) {
             let element = $('input', ev.target.parentNode);
-            element.value = Number(element.value) + Number(1);
-            const e = new Event("change", { target: element });
-            element.dispatchEvent(e);
+            element.value = Number(element.value) + 1;
+            element.dispatchEvent(new Event("change", { target: element }));
         }
+
         $('button.bottom', this.element).onclick = function(ev) {
             let element = $('input', ev.target.parentNode);
-            element.value = Number(element.value) - Number(1);
-            const e = new Event("change", {target: element});
-            element.dispatchEvent(e);
+            element.value = Number(element.value) - 1;
+            element.dispatchEvent(new Event("change", { target: element }));
         }
     }
 }
