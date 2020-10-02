@@ -11,6 +11,7 @@ export class CharacterStat extends BaseComponent {
         let character = Character.active();
         let statValue = character.attributes[statName];
 
+        // Set up HTML that will be displayed
         this.element.innerHTML = 
         `<label>${statName}</label>
         <button class="top">+</button>
@@ -18,24 +19,29 @@ export class CharacterStat extends BaseComponent {
         <button class="bottom">-</button>`;
         this.element.className = "character-stat";
         
+        // Set up event listeners
         $('input', this.element).onchange = function(ev) {
-            let statInput = ev.target;
-            let stat = statInput.attributes.getNamedItem("data-bind").value;
-            let value = statInput.valueAsNumber;
-            Character.active().attributes[stat] = value;
-            Player.active().save();
+            CharacterStat.onValueChange(ev);
         }
-
         $('button.top', this.element).onclick = function(ev) {
-            let element = $('input', ev.target.parentNode);
-            element.value = Number(element.value) + 1;
-            element.dispatchEvent(new Event("change", { target: element }));
+            CharacterStat.onButtonClick(ev, +1);
         }
-
         $('button.bottom', this.element).onclick = function(ev) {
-            let element = $('input', ev.target.parentNode);
-            element.value = Number(element.value) - 1;
-            element.dispatchEvent(new Event("change", { target: element }));
+            CharacterStat.onButtonClick(ev, -1);
         }
     }
+
+    static onValueChange(event) {
+        let statInput = event.target;
+        let stat = statInput.attributes.getNamedItem("data-bind").value;
+        let value = statInput.valueAsNumber;
+        Character.active().attributes[stat] = value;
+        Player.active().save();
+    }
+
+    static onButtonClick(event, value) {
+        let element = $('input', event.target.parentNode);
+        element.value = Number(element.value) + value;
+        element.onchange({ target: element });
+    } 
 }
