@@ -19,7 +19,7 @@ export class CharacterStat extends BaseComponent {
         <button class="bottom">-</button>`;
         this.element.className = "character-stat";
         
-        // Set up event listeners
+        // Set up event listeners 
         $('input', this.element).onchange = function(ev) {
             CharacterStat.onValueChange(ev);
         }
@@ -36,9 +36,8 @@ export class CharacterStat extends BaseComponent {
      * @param {Event} event 
      */
     static onValueChange(event) {
-        let statInput = event.target;
-        let stat = statInput.attributes.getNamedItem("data-bind").value;
-        let value = statInput.valueAsNumber;
+        let stat = event.target.attributes.getNamedItem("data-bind").value;
+        let value = event.target.valueAsNumber;
         Character.active().attributes[stat] = value;
         Player.active().save();
     }
