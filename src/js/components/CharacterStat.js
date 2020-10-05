@@ -31,6 +31,10 @@ export class CharacterStat extends BaseComponent {
         }
     }
 
+    /**
+     * Fired when the value of the character stat has changed.
+     * @param {Event} event 
+     */
     static onValueChange(event) {
         let statInput = event.target;
         let stat = statInput.attributes.getNamedItem("data-bind").value;
@@ -39,6 +43,13 @@ export class CharacterStat extends BaseComponent {
         Player.active().save();
     }
 
+    /**
+     * Adds a certain number to the existing stat value.
+     * If a negative number is added, the number is subtracted.
+     * This triggers the `onchange` event.
+     * @param {Event} event 
+     * @param {Number} value 
+     */
     static onButtonClick(event, value) {
         let element = $('input', event.target.parentNode);
         element.value = Number(element.value) + value;
