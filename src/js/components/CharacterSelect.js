@@ -45,14 +45,15 @@ export class CharacterSelect extends BaseComponent {
         let player = Player.active();
         player.characters.activeId = Number(event.target.value);
         player.save();
+        CharacterSelect.reRenderComponents();
+    } 
 
+    static reRenderComponents() {
         for (const component of window.app.components) {
             // only re-render stat components
             if (component instanceof CharacterStat) {
                 component.render();
-            } else {
-                console.log(`Component is instance of ${component.constructor.name}, not a stat`)
             }
         }
-    } 
+    }
 }

@@ -8,8 +8,7 @@ import { $ } from "../utils/helpers.js";
 export class CharacterStat extends BaseComponent {
     render() {
         let statName = this.attributes.getNamedItem("data-bind").value;
-        let character = Character.active();
-        let statValue = character.attributes[statName];
+        let statValue = Character.active().attributes[statName];
 
         // Set up HTML that will be displayed
         this.element.innerHTML = 
